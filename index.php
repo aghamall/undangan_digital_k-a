@@ -89,55 +89,118 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             pointer-events: none;
         }
 
-        /* Cover Layer - Premium Re-design */
+        /* =========================
+   COVER PREMIUM
+========================= */
+
         #cover {
             position: fixed;
             inset: 0;
-            background: linear-gradient(rgba(15, 6, 25, 0.75), rgba(0, 0, 0, 0.85)), url('DSC06272(1).jpg');
-            background-size: cover;
-            background-position: center;
+            z-index: 10005;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 10005;
-            transition: 1.5s cubic-bezier(0.77, 0, 0.175, 1);
             text-align: center;
-            padding: 30px;
-        }
 
-        #cover.open {
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
+            gap: 35px;
+
+            background:
+                linear-gradient(rgba(15, 6, 25, .75),
+                    rgba(0, 0, 0, .88)),
+                url('DSC06272(1).jpg');
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 30px 20px;
         }
 
         .cover-title-container {
-            animation: fadeInDown 1.2s ease-out;
+            margin-top: 30px;
         }
 
-        #cover h2 {
+        .cover-title-container h2 {
             font-family: 'Allura', cursive;
-            font-size: clamp(80px, 12vw, 130px);
-            color: var(--text-white);
-            line-height: 0.9;
-            margin: 10px 0;
-            text-shadow: 0 0 25px rgba(155, 89, 182, 0.7), 0 0 50px rgba(155, 89, 182, 0.3);
+            font-size: clamp(70px, 14vw, 120px);
+            line-height: .85;
+            color: #fff;
+            margin: 0;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, .4),
+                0 0 30px rgba(155, 89, 182, .6);
         }
 
-        /* Box Undangan Tamu Terhormat */
-        .tamu-badge-box {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 25px 40px;
-            border-radius: 24px;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            margin: 40px 0;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
-            max-width: 460px;
-            width: 100%;
+        .cover-title-container h2:nth-child(3) {
+            font-size: clamp(55px, 10vw, 90px);
+            margin: 8px 0;
         }
+
+        .tamu-badge-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 6vw, 42px);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        .guest-label {
+            font-size: 14px;
+            opacity: .75;
+            margin-bottom: 15px;
+        }
+
+        .guest-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #fff;
+
+            word-break: break-word;
+            line-height: 1.3;
+        }
+
+        .open-btn {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px) {
+
+            #cover {
+                gap: 25px;
+            }
+
+            .cover-name {
+                font-family: 'Allura', cursive;
+                font-size: clamp(75px, 13vw, 130px);
+                line-height: .85;
+                margin: 0;
+            }
+
+            .cover-amp {
+                font-family: 'Allura', cursive;
+                font-size: clamp(55px, 9vw, 90px);
+                line-height: 1;
+            }
+
+            .guest-name {
+                font-size: 30px;
+            }
+
+            .tamu-badge-box {
+                padding: 22px;
+            }
+
+            .open-btn {
+                width: 90%;
+            }
+        }
+
 
         /* Hero Section - Visual Boost */
         .hero {
@@ -359,6 +422,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             .grid-item:nth-child(5) {
                 grid-row: span 2;
             }
+
             .grid-item:nth-child(1) {
                 grid-column: span 2;
             }
@@ -422,7 +486,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             content: '';
             position: absolute;
             inset: 4px;
-            border: 1px solid rgba(0,0,0,0.15);
+            border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 4px;
         }
 
@@ -443,7 +507,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             margin-bottom: 12px;
             display: block;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .card-holder {
@@ -482,7 +546,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
 
         .btn-outline {
             background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(255,255,255,0.4) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
             box-shadow: none;
         }
 
@@ -516,7 +580,9 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             transition: 0.3s;
         }
 
-        input:focus, select:focus, textarea:focus {
+        input:focus,
+        select:focus,
+        textarea:focus {
             border-color: var(--primary-purple);
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 15px rgba(155, 89, 182, 0.2);
@@ -533,9 +599,9 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             border-left: 4px solid var(--primary-purple);
             text-align: left;
             animation: slideIn 0.5s ease;
-            border-top: 1px solid rgba(255,255,255,0.02);
-            border-right: 1px solid rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-right: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .avatar {
@@ -625,7 +691,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             padding: 12px 8px;
             z-index: 9999;
             transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         .iphone-navbar.active {
@@ -722,64 +788,83 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
                 transform: translateY(0);
             }
         }
+
+        #opening {
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(rgba(15, 6, 25, .75), rgba(0, 0, 0, .85)),
+                url('DSC06272(1).jpg');
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: 10006;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .5s ease;
+        }
+
+        #opening.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .opening-content {
+            width: 100%;
+            max-width: 650px;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #opening h1 {
+            font-size: 12px;
+            letter-spacing: 6px;
+            opacity: .7;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        #opening h2 {
+            font-family: 'Allura', cursive;
+            font-size: clamp(55px, 12vw, 95px);
+            line-height: 1;
+            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(155, 89, 182, .5);
+        }
+
+        .desc {
+            max-width: 500px;
+            margin: 25px auto;
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: .85;
+        }
+
+        #opening .small-text {
+            font-family: serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            opacity: .9;
+            text-align: center;
+            direction: rtl;
+        }
+
+        #opening .btn {
+            display: inline-flex;
+            margin: 25px auto 0;
+        }
     </style>
 </head>
 
+
+
 <body class="lock">
-
-    <div id="particles-js"></div>
-    <video autoplay muted loop playsinline id="main-video-bg">
-        <source src="Video Undangan Alma & Kavindhi.mp4">
-    </video>
-
-    <nav class="iphone-navbar" id="navbar">
-    <a href="#home" class="nav-item active-nav">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-    </a>
-
-    <a href="#mempelai" class="nav-item">
-        <i class="fa-solid fa-heart"></i>
-        <span>Mempelai</span>
-    </a>
-
-    <a href="#story" class="nav-item">
-        <i class="fa-solid fa-book-open"></i>
-        <span>Story</span>
-    </a>
-
-    <a href="#acara" class="nav-item">
-        <i class="fa-solid fa-calendar-day"></i>
-        <span>Acara</span>
-    </a>
-
-    <a href="#galeri" class="nav-item">
-        <i class="fa-solid fa-images"></i>
-        <span>Galeri</span>
-    </a>
-
-    <a href="#rsvp" class="nav-item">
-        <i class="fa-solid fa-clipboard-check"></i>
-        <span>RSVP</span>
-    </a>
-
-    <a href="#ucapan" class="nav-item">
-        <i class="fa-solid fa-message"></i>
-        <span>Ucapan</span>
-    </a>
-
-    <a href="#gift" class="nav-item">
-        <i class="fa-solid fa-gift"></i>
-        <span>Gift</span>
-    </a>
-</nav>
-
-    <div id="music-toggle" onclick="toggleMusic()">
-        <div class="bars" id="music-bars"><span></span><span></span><span></span><span></span></div>
-    </div>
-    <audio id="music" loop>
-        <source src="사탕 - SEVENTEEN.mp3">
-    </audio>
 
     <div id="cover">
         <div class="cover-title-container">
@@ -797,19 +882,97 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
         </button>
     </div>
 
+    <div id="opening">
+
+        <div class="opening-content">
+
+            <p class="small-text">
+                السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
+            </p>
+
+            <h1>YOU ARE INVITED</h1>
+
+            <h2>The Wedding Of</h2>
+            <h2>Alma & Kavindhi</h2>
+
+            <p class="desc">
+                Dengan penuh rasa syukur kami mengundang bapak ibu saudara/i
+                untuk hadir di hari bahagia kami
+            </p>
+
+            <button class="btn" onclick="enterOpening()">
+                Mulai
+            </button>
+
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+    <video autoplay muted loop playsinline id="main-video-bg">
+        <source src="Video Undangan Alma & Kavindhi.mp4">
+    </video>
+
+    <nav class="iphone-navbar" id="navbar">
+        <a href="#home" class="nav-item active-nav">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="#mempelai" class="nav-item">
+            <i class="fa-solid fa-heart"></i>
+            <span>Mempelai</span>
+        </a>
+
+        <a href="#story" class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Story</span>
+        </a>
+
+        <a href="#acara" class="nav-item">
+            <i class="fa-solid fa-calendar-day"></i>
+            <span>Acara</span>
+        </a>
+
+        <a href="#galeri" class="nav-item">
+            <i class="fa-solid fa-images"></i>
+            <span>Galeri</span>
+        </a>
+
+        <a href="#rsvp" class="nav-item">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <span>RSVP</span>
+        </a>
+
+        <a href="#ucapan" class="nav-item">
+            <i class="fa-solid fa-message"></i>
+            <span>Ucapan</span>
+        </a>
+
+        <a href="#gift" class="nav-item">
+            <i class="fa-solid fa-gift"></i>
+            <span>Gift</span>
+        </a>
+    </nav>
+
+    <div id="music-toggle" onclick="toggleMusic()">
+        <div class="bars" id="music-bars"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <audio id="music" loop>
+        <source src="사탕 - SEVENTEEN.mp3">
+    </audio>
+
+
+
     <section class="hero" id="home">
         <div class="fade show">
             <p style="letter-spacing: 6px; font-size: 14px; margin-bottom: 15px; font-weight: 400;">SABTU, 08 AGUSTUS 2026</p>
             <h1>Alma</h1>
             <h1>&</h1>
             <h1>Kavindhi</h1>
-            <div id="countdown">Loading...</div>
             <br>
-            <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MnEzOTFkNGU3MGQ2NzZnMmFvbnRkZWxlYzYgYXprYWdhbWFsc3lhcmlmQG0&tmsrc=azkagamalsyarif%40gmail.com" target="_blank" class="btn btn-outline">
-                <i class="fa-solid fa-calendar-plus"></i> Simpan Tanggal
-            </a>
         </div>
     </section>
+
 
     <section class="section" id="mempelai">
         <div class="card fade">
@@ -817,16 +980,42 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
             <div class="mempelai-container">
                 <div class="mempelai-item">
                     <h3 style="font-family: 'Allura', cursive; font-size: 45px; color: var(--primary-purple); margin-bottom: 10px;">Alma Ghalizha, S.Psi</h3>
-                    <p style="font-size: 14px; opacity: 0.8;">Putri dari <b>Bapak Sofyan Tsauri</b></p>
+                    <p style="font-size: 14px; opacity: 0.8;">Putri pertama dari </p>
+                    <p style="font-size: 14px; opacity: 0.8;"><b>Bapak Sofyan Tsauri</b></p>
                     <p style="font-size: 14px; opacity: 0.8;"><b>& Ibu Nyayu Rogayah</b></p>
                 </div>
                 <div style="font-family: 'Allura', cursive; font-size: 35px; opacity: 0.6;">&</div>
                 <div class="mempelai-item">
                     <h3 style="font-family: 'Allura', cursive; font-size: 45px; color: var(--primary-purple); margin-bottom: 10px;">Kavindhi Pradana Firmansyah, S.Psi</h3>
-                    <p style="font-size: 14px; opacity: 0.8;">Putra dari <b>Bapak Andhika Firmansyah</b></p>
+                    <p style="font-size: 14px; opacity: 0.8;">Putra pertama dari</p>
+                    <p style="font-size: 14px; opacity: 0.8;"><b>Bapak Andhika Firmansyah</b></p>
                     <p style="font-size: 14px; opacity: 0.8;"><b>& Ibu Vivi Suswanti</b></p>
                 </div>
             </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="ayat">
+        <div class="card fade">
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 25px; letter-spacing: 2px;">
+                Ayat Suci Al-Qur'an
+            </h2>
+
+            <p style="font-size: 26px; line-height: 2; margin-bottom: 25px;">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+                لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+            </p>
+
+            <p style="font-size: 14px; line-height: 1.8; opacity: 0.9;">
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan
+                untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya,
+                dan Dia menjadikan di antaramu rasa kasih dan sayang."
+            </p>
+
+            <p style="margin-top: 15px; color: var(--primary-purple); font-weight: 600;">
+                QS. Ar-Rum : 21
+            </p>
         </div>
     </section>
 
@@ -834,7 +1023,7 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
         <div class="fade">
             <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 10px; letter-spacing: 2px;">LOVE STORY</h2>
             <p style="font-size: 14px; opacity: 0.7; margin-bottom: 40px;">Surat dari kami sebagai cerita perjalanan kami</p>
-            
+
             <div class="story-grid">
                 <!-- Cerita Kavindhi -->
                 <div class="story-item">
@@ -842,29 +1031,29 @@ $ambil_ucapan = mysqli_query($conn, "SELECT * FROM wishes ORDER BY created_at DE
                     <h4 style="font-family: 'Playfair Display'; font-size: 20px; color: var(--primary-purple); margin-bottom: 15px;">Surat dari Kavindhi untuk Alma</h4>
                     <p style="font-size: 13px; line-height: 1.7; opacity: 0.9;">Juli 2024 menjadi awal cerita yang tak pernah kami duga. Saat itu, aku melihat profil seorang wanita lucu dan menggemaskan di Bumble dan ketika melihat dia swipe right, aku langsung tertarik untuk membalasnya hingga kami match.
 
-Awalnya komunikasi kami sempat terputus dua kali, pertama dia yang menghilang, lalu aku melakukan hal serupa. Namun takdir punya caranya sendiri... Sebuah mirror selfie lucunya di Instagram membuatku kembali ingin menghubunginya. Tak lama setelah itu, Alma justru mengambil langkah pertama mengajakku bertemu sepulang kerja, meski jarak kantor kami cukup jauh.
+                        Awalnya komunikasi kami sempat terputus dua kali, pertama dia yang menghilang, lalu aku melakukan hal serupa. Namun takdir punya caranya sendiri... Sebuah mirror selfie lucunya di Instagram membuatku kembali ingin menghubunginya. Tak lama setelah itu, Alma justru mengambil langkah pertama mengajakku bertemu sepulang kerja, meski jarak kantor kami cukup jauh.
 
-Pertemuan pertama kami berlangsung sederhana di HokBen Poris. Di sana, Alma mengucapkan kalimat yang hingga hari ini masih kuingat jelas.. "Setelah ini, kamu masih mau ketemu aku lagi nggak?" Tanpa ragu, aku menjawab, "Mau lah, kenapa gamau? Wkwk."
+                        Pertemuan pertama kami berlangsung sederhana di HokBen Poris. Di sana, Alma mengucapkan kalimat yang hingga hari ini masih kuingat jelas.. "Setelah ini, kamu masih mau ketemu aku lagi nggak?" Tanpa ragu, aku menjawab, "Mau lah, kenapa gamau? Wkwk."
 
-Perjalanan kami tidak selalu mudah, kami pernah dipisahkan jarak dan melewati hari-hari penuh rindu. Namun setiap langkah justru membawa kami semakin dekat. Pada Desember 2025, kami memohon restu kepada kedua orang tua, dan pada Februari 2026, kami resmi bertunangan.
+                        Perjalanan kami tidak selalu mudah, kami pernah dipisahkan jarak dan melewati hari-hari penuh rindu. Namun setiap langkah justru membawa kami semakin dekat. Pada Desember 2025, kami memohon restu kepada kedua orang tua, dan pada Februari 2026, kami resmi bertunangan.
 
-Hari ini, aku bersyukur karena dari sekian banyak kemungkinan di dunia, aku dipertemukan dengan Alma. Sosok yang mengajarkanku bahwa cinta bukan hanya tentang menemukan seseorang yang sempurna, tetapi tentang menemukan seseorang yang membuatmu merasa pulang.
+                        Hari ini, aku bersyukur karena dari sekian banyak kemungkinan di dunia, aku dipertemukan dengan Alma. Sosok yang mengajarkanku bahwa cinta bukan hanya tentang menemukan seseorang yang sempurna, tetapi tentang menemukan seseorang yang membuatmu merasa pulang.
 
-Terima kasih telah memilihku, Alma. Kini dan selamanya, aku ingin pulang kepadamu. ❤️</p>
+                        Terima kasih telah memilihku, Alma. Kini dan selamanya, aku ingin pulang kepadamu. ❤️</p>
                 </div>
-                
+
                 <!-- Cerita Alma -->
                 <div class="story-item">
                     <div class="story-img-wrapper"><img src="DSC06320.JPG"></div>
                     <h4 style="font-family: 'Playfair Display'; font-size: 20px; color: var(--primary-purple); margin-bottom: 15px;">Surat dari Alma untuk Kavindhi</h4>
                     <p style="font-size: 13px; line-height: 1.7; opacity: 0.9;">Dari Alma untuk Mas Kevin, yang awalnya hanya sebuah profil di Bumble pada akhir Juli 2024. Lucu rasanya mengingat kalau semua ini dimulai karena aku yang lebih dulu swipe. Percakapan kecil kita terasa nyaman sampai kita bertemu pertama kali di HokBen. Aku masih ingat ketika dengan sedikit ragu aku bertanya, “setelah ini, kamu mau gak ketemu aku lagi?” dan kamu menjawab, “mau kok.” Sejak hari itu, tanpa sadar kamu mulai menjadi bagian dari hariku.
 
-Kita pernah menghabiskan akhir pekan dengan bertemu sesering mungkin, lalu belajar merindukan saat jarak memisahkan—7 bulan tanpa bertemu sama sekali, antara Tangerang Selatan-Surabaya selama 4 bulan dan Yogyakarta selama 3 bulan. Jarak tidak selalu mudah, tapi entah bagaimana, kita tetap memilih untuk bertahan dan percaya bahwa semua ini akan membawa kita ke tujuan yang sama.
+                        Kita pernah menghabiskan akhir pekan dengan bertemu sesering mungkin, lalu belajar merindukan saat jarak memisahkan—7 bulan tanpa bertemu sama sekali, antara Tangerang Selatan-Surabaya selama 4 bulan dan Yogyakarta selama 3 bulan. Jarak tidak selalu mudah, tapi entah bagaimana, kita tetap memilih untuk bertahan dan percaya bahwa semua ini akan membawa kita ke tujuan yang sama.
 
-Juli 2025, jarak itu selesai saat kamu bertugas di Jakarta. Desember 2025 menjadi langkah berani kita meminta restu, lalu Februari 2026 keluarga kita dipertemukan dalam sebuah lamaran. 
-Kemudian hari ini, aku bersyukur karena dari semua kebetulan kecil itu, akhirnya aku menemukan rumah—di kamu.
+                        Juli 2025, jarak itu selesai saat kamu bertugas di Jakarta. Desember 2025 menjadi langkah berani kita meminta restu, lalu Februari 2026 keluarga kita dipertemukan dalam sebuah lamaran.
+                        Kemudian hari ini, aku bersyukur karena dari semua kebetulan kecil itu, akhirnya aku menemukan rumah—di kamu.
 
-Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban sederhana itu membawa kita sampai di sini.</p>
+                        Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban sederhana itu membawa kita sampai di sini.</p>
                 </div>
             </div>
 
@@ -895,7 +1084,39 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
                 <i class="fa-solid fa-location-dot"></i> Lihat Rute Navigasi
             </a>
         </div>
+
+        <div style="margin: 25px 0;">
+            <h3 style=" font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px;">
+                COUNTDOWN MENUJU HARI H
+            </h3>
+
+            <div id="countdown" style="
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        background: rgba(155, 89, 182, 0.15);
+        padding: 14px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(155, 89, 182, 0.3);
+        backdrop-filter: blur(10px);
+        display: inline-block;
+        min-width: 260px;
+        text-align: center;
+        white-space: nowrap;
+    ">
+                loading...
+            </div>
+
+            <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MnEzOTFkNGU3MGQ2NzZnMmFvbnRkZWxlYzYgYXprYWdhbWFsc3lhcmlmQG0&tmsrc=azkagamalsyarif%40gmail.com"
+                target="_blank"
+                class="btn btn-outline">
+                <i class="fa-solid fa-calendar-plus"></i> Simpan Tanggal
+            </a>
+
+
+        </div>
     </section>
+
 
     <section class="section" id="galeri" style="padding: 100px 10px;">
         <div class="fade" style="margin-bottom: 40px;">
@@ -966,7 +1187,7 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
         <div class="card fade">
             <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 15px; letter-spacing: 2px;">E-GIFT</h2>
             <p style="font-size: 13px; opacity: 0.7; margin-bottom: 20px;">Doa restu Anda adalah karunia terindah, namun jika ingin memberikan tanda kasih, Anda dapat melalui rekening di bawah ini:</p>
-            
+
             <div class="gift-container">
                 <div class="bank-card">
                     <div class="bank-name">BCA</div>
@@ -975,7 +1196,7 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
                     <div class="card-holder">A/N ALMA GHALIZHA</div>
                     <button class="btn btn-copy" onclick="copyText('rek1')">Salin</button>
                 </div>
-                
+
                 <div class="bank-card">
                     <div class="bank-name">BCA</div>
                     <div class="chip"></div>
@@ -983,7 +1204,7 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
                     <div class="card-holder">A/N KAVINDHI PRADANA F</div>
                     <button class="btn btn-copy" onclick="copyText('rek2')">Salin</button>
                 </div>
-                
+
                 <div class="bank-card">
                     <div class="bank-name">BRI</div>
                     <div class="chip"></div>
@@ -995,7 +1216,12 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
         </div>
     </section>
 
+
     <footer style="padding: 100px 20px 40px; text-align: center; position: relative; z-index: 1;">
+        <p style="font-size: 13px; opacity: 0.8; margin-top: 20px; line-height: 1.8;">
+            Terima kasih atas doa, restu, dan kehadiran Bapak/Ibu/Saudara/i.
+            Semoga Allah SWT membalas segala kebaikan dengan keberkahan dan kebahagiaan.
+        </p>
         <div style="font-family: 'Allura', cursive; font-size: 36px; text-shadow: 0 0 10px rgba(155, 89, 182, 0.3);">Alma & Kavindhi</div>
         <p style="font-size: 10px; opacity: 0.4; margin-top: 15px; letter-spacing: 1px;">&copy; 2026 Digital Wedding Invitation by @aghamall</p>
     </footer>
@@ -1025,11 +1251,19 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
         });
 
         function openInvite() {
-            document.getElementById('cover').classList.add('open');
-            document.body.classList.remove('lock');
-            document.getElementById('navbar').classList.add('active');
-            const m = document.getElementById('music');
-            m.play().catch(() => {});
+            const cover = document.getElementById('cover');
+            const opening = document.getElementById('opening');
+
+            // opening langsung nongol
+            opening.classList.add('show');
+
+            // cover langsung fade out
+            cover.classList.add('hide');
+
+            // habis fade selesai baru remove
+            setTimeout(() => {
+                cover.remove();
+            }, 600);
         }
 
         function toggleMusic() {
@@ -1132,6 +1366,25 @@ Terima kasih sudah berkata “mau kok” di hari itu. Karena ternyata, jawaban s
             const secs = Math.floor((d % 60000) / 1000);
             document.getElementById('countdown').innerHTML = `${days} Hari : ${hours} Jam : ${mins} Menit : ${secs} Detik`;
         }, 1000);
+
+        function enterOpening() {
+            const opening = document.getElementById('opening');
+
+            opening.classList.remove('show');
+
+            setTimeout(() => {
+                opening.style.display = 'none';
+
+                document.body.classList.remove('lock');
+
+                const navbar = document.getElementById('navbar');
+                navbar.classList.add('active');
+
+                const music = document.getElementById('music');
+                music.play().catch(() => {});
+
+            }, 800);
+        }
     </script>
 </body>
 
